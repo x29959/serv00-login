@@ -3,7 +3,7 @@ name: Run Login Script
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 */3 * *"  # 每三天运行一次，可以根据需求调整时间
+    - cron: "0 0 */2 * *"  # 每三天运行一次，可以根据需求调整时间
   push:
     branches:
       - main
@@ -18,7 +18,7 @@ jobs:
       - name: 设置 Python 环境
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # 设置你希望使用的 Python 版本，建议使用稳定版本
+          python-version: '3.8'  # 设置你希望使用的 Python 版本，建议使用稳定版本
 
       - name: Create accounts.json from environment variable
         run: echo "$ACCOUNTS_JSON" > accounts.json
